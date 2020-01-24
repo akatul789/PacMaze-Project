@@ -25,7 +25,7 @@ public class app
 
 class MyCanvas extends Canvas implements KeyListener
 {
-	int p=40,q=280,m,n,time=10,x=80,y=285,co=0,pos,a=1;
+	int p=40,q=280,m,n,time=5,x=80,y=285,co=0,pos,a=1;
 	Button b, button2;
         public MyCanvas() {
 		setBackground(Color.white);
@@ -83,7 +83,7 @@ class MyCanvas extends Canvas implements KeyListener
 				{Thread.sleep(time);}		
 				catch(Exception e){}
 			}
-		g.setColor(Color.white);
+	/*	g.setColor(Color.white);
 	
 		g.fillRect(420,420,75,75);
 		g.setColor(Color.black);
@@ -92,6 +92,7 @@ class MyCanvas extends Canvas implements KeyListener
 	
 		String s1=String.valueOf(y);
 		g.drawString(s1,480,450);
+*/
 	}
 
 
@@ -240,33 +241,18 @@ public void keyReleased(KeyEvent e) {
 } 
 public void finsh(Graphics g)
 {
-			while(p!=m-35 || q!=n+70)
-			{
+	g.setColor(Color.WHITE);
+	g.fillRect(120,320,600,100);
+	g.setColor(Color.black);
+	g.setFont(new Font("Chiller", Font.BOLD,100));
+	g.drawString(" WELL DONE !!",130,400);
 
-				g.setColor(Color.white);
-				//g.fillArc(x,y,60,60,0,360);   //disapper pac //1 deg. increase to erase
-				g.fillRect(x,y,62,62);
-				p-=1;q+=2;
-				g.setColor(Color.green);
-				g.fillArc(x,y,60,60,p,q); //open pac
-				try
-				{Thread.sleep(time);}		
-				catch(Exception e){}
-			}	
-
-			while(p!=m || q!=n)
-			{
-
-				g.setColor(Color.white);
-				//g.fillArc(x,y,60,60,0,360);   //disapper pac  //1 deg. increase to erase
-				g.fillRect(x,y,62,62);
-				p++;q-=2;
-				g.setColor(Color.green);
-				g.fillArc(x,y,60,60,p,q); //close pac
-				try
-				{Thread.sleep(time);}		
-				catch(Exception e){}
-			}	
+	g.setColor(Color.WHITE);
+	g.fillRect(90,430,600,100);
+	g.setColor(Color.black);
+	g.setFont(new Font("Chiller", Font.BOLD,70));
+	g.drawString(" MISSION ACCOMPLISHED !!",70,530);
+	
 }
 
    public void keyPressed( KeyEvent e ) { }
@@ -274,6 +260,12 @@ public void finsh(Graphics g)
 	public void paint(Graphics x)
 	{
 		//super.paint(x);
+
+		x.setColor(Color.black);
+		x.setFont(new Font("Courier", Font.BOLD,40));
+		x.drawString("##** PAC MAZE **##",270,60);
+
+
     		Graphics2D g = (Graphics2D) x;
 		g.setStroke(new BasicStroke(4));
 		g.setColor(Color.black);
@@ -284,7 +276,7 @@ public void finsh(Graphics g)
 		g.drawLine(645,140,785,140); //x
 		g.drawLine(855,70,855,630);//y
 		g.drawLine(570,70,570,140); //y
-		g.drawLine(75,70,75,280); //y
+		g.drawLine(75,70,75,350); //y
 
 
 		g.drawLine(430,210,785,210); //row 2
@@ -329,7 +321,7 @@ public void finsh(Graphics g)
 		g.drawLine(145,630,365,630); //row 8
 		g.drawLine(145,631,365,631); //x
 		g.drawLine(425,630,715,630); //x
-		g.drawLine(785,560,785,700); //y
+		g.drawLine(785,560,785,700); //
 
 		g.drawLine(75,700,855,700); //row 9
 		
@@ -337,68 +329,7 @@ update(g);
 			
 
 }
-	/*public void paint(Graphics g)
-	{
-		g.setColor(Color.black);
-		g.drawString("PAC MAN MAZE ",200,50);
-		for(int i=0;i<3;i++)
-		{
-		g.drawLine(75,(70+i),855,(70+i));  //row 1 x
-		g.drawLine(145,(140+i),430,(140+i)); //x
-		g.drawLine(645,(140+i),785,(140+i)); //x
-		g.drawLine((855+i),70,(855+i),630);//y
-		g.drawLine((570+i),70,(570+i),140); //y
-		g.drawLine((75+i),70,(75+i),280); //y
-		
 
-		g.drawLine(430,(210+i),785,(210+i)); //row 2 x
-		g.drawLine(215,(210+i),365,(210+i)); //x
-		g.drawLine((145+i),140,(145+i),210);//y
-		g.drawLine((365+i),140,(365+i),280); //y
-		g.drawLine((500+i),140,(500+i),210); //y
-		g.drawLine((785+i),140,(785+i),420); //y
-
-		g.drawLine(75,(280+i),295,(280+i)); //row 3 x
-		g.drawLine(365,(280+i),715,(280+i)); //x
-
-
-		g.drawLine(145,(350+i),430,(350+i)); //row 4 x
-		g.drawLine(645,(350+i),785,(350+i)); //x
-		g.drawLine((570+i),280,(570+i),630); //y
-		g.drawLine((145+i),280,(145+i),420); //y
-		g.drawLine((645+i),350,(645+i),560);  //y
-
-
-		g.drawLine((75+i),280,(75+i),700); //row 5 y
-		g.drawLine(215,(420+i),365,(420+i)); //x
-		g.drawLine(715,(420+i),785,(420+i)); //x
-		g.drawLine((715+i),420,(715+i),490); //y
-		g.drawLine((785+i),420,(785+i),490); //y
-		g.drawLine((75+i),420,(75+i),700); //y
-		g.drawLine((430+i),350,(430+i),560); //y
-		g.drawLine((500+i),350,(500+i),560); //y
-
-		g.drawLine(75,(490+i),215,(490+i)); //row 6 x
-		g.drawLine((365+i),420,(365+i),630); //y
-		g.drawLine((215+i),420,(215+i),490); //x
- 
-
-		g.drawLine(145,(560+i),365,(560+i)); //row 7 x
-		g.drawLine(645,(560+i),785,(560+i)); //x
-		g.drawLine(430,(560+i),500,(560+i)); //x
-		g.drawLine((285+i),490,(285+i),560); //y
-
-
-		g.drawLine(145,(630+i),365,(630+i)); //row 8 x
-		g.drawLine(425,(630+i),715,(630+i)); //x
-		g.drawLine((785+i),560,(785+i),700); //y
-
-		g.drawLine(75,(700+i),855,(700+i)); //row 9 x
-		}
-
-update(g);
-	
-}*/
 public void update(Graphics g)
 {movepac(g);
 if(x==860)
