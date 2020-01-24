@@ -267,6 +267,7 @@ public void finsh(Graphics g)
 				{Thread.sleep(time);}		
 				catch(Exception e){}
 			}	
+}
 
    public void keyPressed( KeyEvent e ) { }
    public void keyTyped( KeyEvent e ) {    }
