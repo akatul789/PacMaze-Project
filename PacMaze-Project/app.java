@@ -1,13 +1,28 @@
+
+/*
+########################################################################
+#
+#	PROJECT -- 	PAC_MAZE in java using Canvas
+#	BY - Atul Kumar Singh(AKS)
+#	Email - akatul789@gmail.com
+#	
+#	Done under the esteemed guidance of Lakshmeeswari Gondi Ma'am
+#
+########################################################################
+*/
+
+
+// Importing Canvas and event classes/interfaces
 import java.awt.*;
 import java.awt.event.*;
 public class app
 {
 	public app()  
 	{  
-	Frame f= new Frame("Pac Mannn");
-	f.add(new MyCanvas()); 
-	f.setLayout(null);
-	f.setSize(1200,800);
+	Frame f= new Frame("Pac_MAZE__BY-AKS");
+	f.add(new MyCanvas(),BorderLayout.CENTER); 
+	//f.setLayout(null);
+	f.setSize(1100,850);
 	f.setVisible(true);
 	f.addWindowListener(new WindowAdapter()
 		{
@@ -26,14 +41,12 @@ public class app
 class MyCanvas extends Canvas implements KeyListener
 {
 	int p=40,q=280,m,n,time=5,x=80,y=285,co=0,pos,a=1;
-	Button b, button2;
-        public MyCanvas() {
+	public MyCanvas()
+	{
 		setBackground(Color.white);
 		addKeyListener(this);
-		 setSize(1024,768);
-	
-     }
-
+		setSize(1024,768);
+	}
 
 	void MOVE()
 	{
@@ -45,7 +58,7 @@ class MyCanvas extends Canvas implements KeyListener
 		y+=2;
 		else if(co==-2)
 		y-=2;*/
-
+		// Same code as above ,, cut short using conditional operator
 		int temp;
 		temp=(co==1)?x+=2:(co==-1)?x-=2:(co==2)?y+=2:(co==-2)?y-=2:0;
 	}
@@ -54,23 +67,21 @@ class MyCanvas extends Canvas implements KeyListener
 	{
 			while(p!=m-35 || q!=n+70)
 			{
-
 				g.setColor(Color.white);
 				//g.fillArc(x,y,60,60,0,360);   //disapper pac //1 deg. increase to erase
-				g.fillRect(x,y,62,62);
+				g.fillRect(x,y,62,62);	//Disapper Pac-man.. repainted white square on top
 				p-=1;q+=2;
 				if(x!=pos && y!=pos)
 				{MOVE();}
 				g.setColor(Color.green);
-				g.fillArc(x,y,60,60,p,q); //open pac
+				g.fillArc(x,y,60,60,p,q); //Opening face pac-man (increasing arc angles to open mouth of pac-man)
 				try
-				{Thread.sleep(time);}		
+				{Thread.sleep(time);}		//PAUSE FOR SOMETIME ..//to look like its animating
 				catch(Exception e){}
 			}	
 
 			while(p!=m || q!=n)
 			{
-
 				g.setColor(Color.white);
 				//g.fillArc(x,y,60,60,0,360);   //disapper pac  //1 deg. increase to erase
 				g.fillRect(x,y,62,62);
@@ -78,23 +89,12 @@ class MyCanvas extends Canvas implements KeyListener
 				if(x!=pos && y!=pos)
 				{MOVE();}
 				g.setColor(Color.green);
-				g.fillArc(x,y,60,60,p,q); //close pac
+				g.fillArc(x,y,60,60,p,q); //closing face pac-man (increasing arc angles to close mouth of pac-man)
 				try
-				{Thread.sleep(time);}		
+				{Thread.sleep(time);}	 //PAUSE FOR SOMETIME ..//to look like its animating		
 				catch(Exception e){}
 			}
-	/*	g.setColor(Color.white);
-	
-		g.fillRect(420,420,75,75);
-		g.setColor(Color.black);
-		String s=String.valueOf(x);
-		g.drawString(s,450,450);
-	
-		String s1=String.valueOf(y);
-		g.drawString(s1,480,450);
-*/
 	}
-
 
 
 	boolean checkx()
@@ -135,6 +135,7 @@ class MyCanvas extends Canvas implements KeyListener
 	return false;
 
 	}
+	
 	boolean checky()
 	{
 		int cory[][]={{80,285},{80,425},{150,355},{150,425},{368,355},{368,565},{368,635},{720,565},{720,635},
@@ -170,13 +171,10 @@ class MyCanvas extends Canvas implements KeyListener
 			}
 		}
 	return false;
-}
+	}
 
 	public void movepac(Graphics g)
 	{
-		
-		
-
 		if(co==1 && checkx())
 		{
 			m=40;n=280;
@@ -243,20 +241,17 @@ public void finsh(Graphics g)
 {
 	g.setColor(Color.WHITE);
 	g.fillRect(120,320,600,100);
-	g.setColor(Color.black);
-	g.setFont(new Font("Chiller", Font.BOLD,100));
-	g.drawString(" WELL DONE !!",130,400);
-
-	g.setColor(Color.WHITE);
 	g.fillRect(90,430,600,100);
+	
 	g.setColor(Color.black);
-	g.setFont(new Font("Chiller", Font.BOLD,70));
+	g.setFont(new Font("Courier", Font.BOLD,100));
+	g.drawString(" WELL DONE !!",130,400);
 	g.drawString(" MISSION ACCOMPLISHED !!",70,530);
 	
 }
 
-   public void keyPressed( KeyEvent e ) { }
-   public void keyTyped( KeyEvent e ) {    }
+	public void keyPressed( KeyEvent e ) { }
+	public void keyTyped( KeyEvent e ) {    }
 	public void paint(Graphics x)
 	{
 		//super.paint(x);
@@ -265,11 +260,9 @@ public void finsh(Graphics g)
 		x.setFont(new Font("Courier", Font.BOLD,40));
 		x.drawString("##** PAC MAZE **##",270,60);
 
-
-    		Graphics2D g = (Graphics2D) x;
+   		Graphics2D g = (Graphics2D) x;
 		g.setStroke(new BasicStroke(4));
 		g.setColor(Color.black);
-
 
 		g.drawLine(75,70,855,70);  //row 1 x
 		g.drawLine(145,140,430,140); //x
@@ -278,7 +271,6 @@ public void finsh(Graphics g)
 		g.drawLine(570,70,570,140); //y
 		g.drawLine(75,70,75,350); //y
 
-
 		g.drawLine(430,210,785,210); //row 2
 		g.drawLine(215,210,365,210); //x
 		g.drawLine(145,140,145,210);//y
@@ -286,10 +278,8 @@ public void finsh(Graphics g)
 		g.drawLine(500,140,500,210); //y
 		g.drawLine(785,140,785,420); //y
 
-
 		g.drawLine(75,280,295,280); //row 3
 		g.drawLine(365,280,715,280); //x
-
 
 		g.drawLine(145,350,430,350); //row 4
 		g.drawLine(645,350,785,350); //x
@@ -306,34 +296,29 @@ public void finsh(Graphics g)
 		g.drawLine(432,350,432,560); //y
 		g.drawLine(500,350,500,560); //y
 
-
 		g.drawLine(75,490,215,490); //row 6 x
 		g.drawLine(365,420,365,630); //y
 		g.drawLine(215,420,215,490); //x
  
-
 		g.drawLine(145,560,365,560); //row 7
 		g.drawLine(645,560,785,560); //x
 		g.drawLine(432,560,500,560); //x
 		g.drawLine(285,490,285,560); //y
 
-
 		g.drawLine(145,630,365,630); //row 8
 		g.drawLine(145,631,365,631); //x
 		g.drawLine(425,630,715,630); //x
-		g.drawLine(785,560,785,700); //
+		g.drawLine(785,560,785,700); //y
 
 		g.drawLine(75,700,855,700); //row 9
 		
-update(g);
-			
+	update(g);
+	}
 
-}
-
-public void update(Graphics g)
-{movepac(g);
-if(x==860)
-finsh(g);	
-}
-
+	public void update(Graphics g)
+	{
+		movepac(g);
+		if(x==860)
+		finsh(g);	
+	}
 }    
