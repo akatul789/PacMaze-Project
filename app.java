@@ -1,14 +1,14 @@
 
 /*
-########################################################################
-#
-#	PROJECT -- 	PAC_MAZE in java using Canvas
-#	BY - Atul Kumar Singh(AKS)
-#	Email - akatul789@gmail.com
-#	
-#	Done under the esteemed guidance of Lakshmeeswari Gondi Ma'am
-#
-########################################################################
+#########################################################################
+#																		#
+#	PROJECT -- 	PAC_MAZE in java using Canvas							#
+#	BY - 		Atul Kumar Singh(AKS)									#
+#	Email - 	akatul789@gmail.com										#
+#																		#
+#	Done under the esteemed guidance of Lakshmeeswari Gondi Ma'am		#
+#																		#
+#########################################################################
 */
 
 
